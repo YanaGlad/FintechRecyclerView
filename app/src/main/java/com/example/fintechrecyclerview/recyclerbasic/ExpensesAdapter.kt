@@ -1,4 +1,4 @@
-package com.example.fintechrecyclerview.recycler
+package com.example.fintechrecyclerview.recyclerbasic
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
