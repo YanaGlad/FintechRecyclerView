@@ -1,1 +1,6 @@
 /build
+.name
+gradle.xml
+misc.xml
+deploymentTargetDropDown.xml
+.idea

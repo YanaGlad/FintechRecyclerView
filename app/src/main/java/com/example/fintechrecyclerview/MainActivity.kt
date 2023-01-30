@@ -3,8 +3,6 @@ package com.example.fintechrecyclerview
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.fintechrecyclerview.databinding.ActivityMainBinding
-import com.example.fintechrecyclerview.model.ExpenseModel
-import com.example.fintechrecyclerview.recycler.ExpensesAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,5 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.nav_host_fragment, MainFragment(), "Main")
+            .addToBackStack(null)
+            .commit()
     }
 }
