@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Расходы</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recyclerview_adapter">RecyclerView.Adapter</string>
+    <string name="notify_api">Notify* API</string>
+    <string name="recyclerview_with_delegates">RecyclerView with delegates</string>
+    <string name="listview_adapter">ListView adapter</string>
 </resources>
