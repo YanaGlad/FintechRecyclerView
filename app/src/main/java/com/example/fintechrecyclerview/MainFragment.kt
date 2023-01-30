@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.fintechrecyclerview.databinding.FragmentMainBinding
+import com.example.fintechrecyclerview.listadapter.ListAdapterFragment
 import com.example.fintechrecyclerview.recyclerbasic.BasicRecyclerFragment
 import com.example.fintechrecyclerview.notifyapi.NotifyApiFragment
 
@@ -34,6 +35,10 @@ class MainFragment : Fragment() {
 
         binding.recyclerNotifyApi.setOnClickListener {
             navigateToFragment(NotifyApiFragment(), NotifyApiFragment.TAG)
+        }
+
+        binding.listviewAdapter.setOnClickListener {
+            navigateToFragment(ListAdapterFragment(), ListAdapterFragment.TAG)
         }
     }
 
