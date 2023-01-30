@@ -1,7 +1,9 @@
-package com.example.fintechrecyclerview.notifyapi
+package com.example.fintechrecyclerview.listadapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fintechrecyclerview.Categories
 import com.example.fintechrecyclerview.R
@@ -11,30 +13,45 @@ import com.example.fintechrecyclerview.model.ExpenseModel
 /**
  * @author y.gladkikh
  */
-class ExpensesNotifyAdapter(private val expenses: MutableList<ExpenseModel>) :
-    RecyclerView.Adapter<ExpensesNotifyAdapter.ViewHolder>() {
+interface OnExpenseClickListener {
+    fun onClick(model: ExpenseModel)
+}
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder(ExpenseItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+class ExpensesListAdapter(
+    val onExpenseClickListener: OnExpenseClickListener
+) : ListAdapter<ExpenseModel, ExpensesListAdapter.ViewHolder>(DiffCallback()) {
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) =
-        holder.bind(expenses[position]) {
-            expenses.remove(expenses[position])
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, expenses.size)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
+        ExpenseItemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+        onExpenseClickListener
+    )
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
+
+    override fun getItemId(position: Int): Long = position.toLong()
+
+    class DiffCallback : DiffUtil.ItemCallback<ExpenseModel>() {
+        override fun areItemsTheSame(oldItem: ExpenseModel, newItem: ExpenseModel): Boolean {
+            return oldItem.title == newItem.title
         }
 
-    override fun getItemCount(): Int = expenses.size
+        override fun areContentsTheSame(oldItem: ExpenseModel, newItem: ExpenseModel): Boolean {
+            return oldItem == newItem
+        }
+    }
 
-    class ViewHolder(_binding: ExpenseItemBinding) : RecyclerView.ViewHolder(_binding.root) {
+    class ViewHolder(
+        private val binding: ExpenseItemBinding,
+        private val onClickListener: OnExpenseClickListener
+    ) : RecyclerView.ViewHolder(binding.root) {
 
-        var binding: ExpenseItemBinding = ExpenseItemBinding.bind(itemView)
-
-        fun bind(model: ExpenseModel, action: () -> Unit) {
+        fun bind(model: ExpenseModel) {
             with(binding) {
                 setupUi(model)
                 item.setOnClickListener {
-                    action()
+                    onClickListener.onClick(model)
                 }
             }
         }
