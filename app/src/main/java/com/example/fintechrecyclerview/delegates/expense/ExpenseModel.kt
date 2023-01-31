@@ -8,4 +8,5 @@ data class ExpenseModel(
     val title: String,
     val subtitle: String,
     val price: Int,
+    val date: String,
 )
