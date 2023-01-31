@@ -34,6 +34,15 @@
         android:textColor="@color/white" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/item_touch_helper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/ripple"
+        android:text="@string/item_touch_helper"
+        android:textColor="@color/white" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/recycler_delegates"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
