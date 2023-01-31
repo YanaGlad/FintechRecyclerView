@@ -14,7 +14,7 @@ import com.example.fintechrecyclerview.model.ExpenseModel
  * @author y.gladkikh
  */
 interface OnExpenseClickListener {
-    fun onClick(model: ExpenseModel)
+    fun onClick(position: Int)
 }
 
 class ExpensesListAdapter(
@@ -27,10 +27,12 @@ class ExpensesListAdapter(
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), holder.absoluteAdapterPosition)
     }
 
     override fun getItemId(position: Int): Long = position.toLong()
+
+    override fun getItemCount(): Int = currentList.size
 
     class DiffCallback : DiffUtil.ItemCallback<ExpenseModel>() {
         override fun areItemsTheSame(oldItem: ExpenseModel, newItem: ExpenseModel): Boolean {
@@ -47,11 +49,11 @@ class ExpensesListAdapter(
         private val onClickListener: OnExpenseClickListener
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(model: ExpenseModel) {
+        fun bind(model: ExpenseModel, position: Int) {
             with(binding) {
                 setupUi(model)
                 item.setOnClickListener {
-                    onClickListener.onClick(model)
+                    onClickListener.onClick(position)
                 }
             }
         }

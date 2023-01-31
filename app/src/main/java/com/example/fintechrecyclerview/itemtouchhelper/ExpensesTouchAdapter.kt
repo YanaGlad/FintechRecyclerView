@@ -37,11 +37,7 @@ class ExpensesTouchAdapter(private val expenses: MutableList<ExpenseModel>) :
         ViewHolder(ExpenseItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
-        holder.bind(expenses[position]) {
-            expenses.remove(expenses[position])
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, expenses.size)
-        }
+        holder.bind(expenses[position])
 
     override fun getItemCount(): Int = expenses.size
 
@@ -49,12 +45,9 @@ class ExpensesTouchAdapter(private val expenses: MutableList<ExpenseModel>) :
 
         var binding: ExpenseItemBinding = ExpenseItemBinding.bind(itemView)
 
-        fun bind(model: ExpenseModel, action: () -> Unit) {
+        fun bind(model: ExpenseModel) {
             with(binding) {
                 setupUi(model)
-                item.setOnClickListener {
-                    action()
-                }
             }
         }
 
