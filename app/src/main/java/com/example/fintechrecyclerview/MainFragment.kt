@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.fintechrecyclerview.databinding.FragmentMainBinding
+import com.example.fintechrecyclerview.delegates.DelegatesFragment
 import com.example.fintechrecyclerview.itemtouchhelper.ItemTouchHelperFragment
 import com.example.fintechrecyclerview.listadapter.ListAdapterFragment
 import com.example.fintechrecyclerview.recyclerbasic.BasicRecyclerFragment
@@ -30,17 +31,22 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.recyclerviewAdapter.setOnClickListener {
-            navigateToFragment(BasicRecyclerFragment(), BasicRecyclerFragment.TAG)
-        }
-        binding.recyclerNotifyApi.setOnClickListener {
-            navigateToFragment(NotifyApiFragment(), NotifyApiFragment.TAG)
-        }
-        binding.listviewAdapter.setOnClickListener {
-            navigateToFragment(ListAdapterFragment(), ListAdapterFragment.TAG)
-        }
-        binding.itemTouchHelper.setOnClickListener {
-            navigateToFragment(ItemTouchHelperFragment(), ItemTouchHelperFragment.TAG)
+        with(binding) {
+            recyclerviewAdapter.setOnClickListener {
+                navigateToFragment(BasicRecyclerFragment(), BasicRecyclerFragment.TAG)
+            }
+            recyclerNotifyApi.setOnClickListener {
+                navigateToFragment(NotifyApiFragment(), NotifyApiFragment.TAG)
+            }
+            listviewAdapter.setOnClickListener {
+                navigateToFragment(ListAdapterFragment(), ListAdapterFragment.TAG)
+            }
+            itemTouchHelper.setOnClickListener {
+                navigateToFragment(ItemTouchHelperFragment(), ItemTouchHelperFragment.TAG)
+            }
+            recyclerDelegates.setOnClickListener {
+                navigateToFragment(DelegatesFragment(), DelegatesFragment.TAG)
+            }
         }
     }
 
