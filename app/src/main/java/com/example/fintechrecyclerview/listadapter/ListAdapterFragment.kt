@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.fintechrecyclerview.databinding.FragmentListAdapterBinding
-import com.example.fintechrecyclerview.model.ExpenseModel
 import com.example.fintechrecyclerview.stubExpenseList
 
 /**
@@ -20,8 +19,7 @@ class ListAdapterFragment : Fragment() {
     private lateinit var expensesListAdapter: ExpensesListAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = FragmentListAdapterBinding.inflate(inflater, container, false)
         return binding.root
@@ -36,12 +34,17 @@ class ListAdapterFragment : Fragment() {
 
     private fun initAdapter() {
         val onClickListener = object : OnExpenseClickListener {
-            override fun onClick(model: ExpenseModel) {
-                stubExpenseList.remove(model)
-                expensesListAdapter.submitList(stubExpenseList.toList())
+            override fun onClick(position: Int) {
+                removeItem(position)
             }
         }
         expensesListAdapter = ExpensesListAdapter(onClickListener)
+    }
+
+    private fun removeItem(position: Int) {
+        val currentList = expensesListAdapter.currentList.toMutableList()
+        currentList.removeAt(position)
+        expensesListAdapter.submitList(currentList.toList())
     }
 
     companion object {
