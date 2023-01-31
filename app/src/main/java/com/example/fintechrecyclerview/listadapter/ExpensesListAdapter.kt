@@ -18,7 +18,7 @@ interface OnExpenseClickListener {
 }
 
 class ExpensesListAdapter(
-    val onExpenseClickListener: OnExpenseClickListener
+    private val onExpenseClickListener: OnExpenseClickListener
 ) : ListAdapter<ExpenseModel, ExpensesListAdapter.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
