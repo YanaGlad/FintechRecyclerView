@@ -46,9 +46,9 @@ class DelegatesFragment : Fragment() {
 
         const val TAG = "DelegatesFragment TAG"
 
+        private const val JUL_5 = "5 июля"
         private const val SEP_1 = "1 сенятбря"
         private const val SEP_12 = "12 сенятбря"
-        private const val JUL_5 = "5 июля"
         private const val DEC_7 = "7 декабря"
 
         private val stubDatesList = listOf(
@@ -57,15 +57,15 @@ class DelegatesFragment : Fragment() {
                 date = SEP_1,
             ),
             DateModel(
-                id = 1,
+                id = 2,
                 date = SEP_12,
             ),
             DateModel(
-                id = 1,
+                id = 3,
                 date = JUL_5,
             ),
             DateModel(
-                id = 1,
+                id = 4,
                 date = DEC_7,
             ),
         )
