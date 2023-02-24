@@ -29,7 +29,7 @@ class ExpensesAdapter(private val expenses: List<ExpenseModel>) :
         fun bind(model: ExpenseModel) {
             binding.title.text = model.title
             binding.subtitle.text = model.subtitle
-            binding.price.text = "${model.price} $"
+            binding.price.text = model.price.priceText()
 
             val imageRes = when (model.subtitle) {
                 Categories.AVIA.title -> R.drawable.ic_avia
@@ -44,5 +44,7 @@ class ExpensesAdapter(private val expenses: List<ExpenseModel>) :
             }
             binding.iconImage.setImageResource(imageRes)
         }
+
+        private fun Int.priceText(): String = "$this $"
     }
 }
