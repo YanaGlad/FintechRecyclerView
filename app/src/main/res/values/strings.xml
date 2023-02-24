@@ -6,4 +6,5 @@
     <string name="notify_api">Notify* API</string>
     <string name="recyclerview_with_delegates">RecyclerView with delegates</string>
     <string name="item_touch_helper">Item Touch Helper</string>
+    <string name="sticky_header">Sticky header</string>
 </resources>

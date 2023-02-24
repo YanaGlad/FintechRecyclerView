@@ -42,4 +42,12 @@
         android:text="@string/recyclerview_with_delegates"
         android:textColor="@color/white" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/recycler_decorator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/ripple"
+        android:text="@string/sticky_header"
+        android:textColor="@color/white" />
 </androidx.appcompat.widget.LinearLayoutCompat>
