@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.fintechrecyclerview.databinding.FragmentMainBinding
 import com.example.fintechrecyclerview.delegates.DelegatesFragment
-import com.example.fintechrecyclerview.itemdecorator.StickyHeaderFragment
 import com.example.fintechrecyclerview.itemtouchhelper.ItemTouchHelperFragment
 import com.example.fintechrecyclerview.recyclerbasic.BasicRecyclerFragment
 import com.example.fintechrecyclerview.notifyapi.NotifyApiFragment
@@ -43,9 +42,6 @@ class MainFragment : Fragment() {
             }
             recyclerDelegates.setOnClickListener {
                 navigateToFragment(DelegatesFragment(), DelegatesFragment.TAG)
-            }
-            recyclerDecorator.setOnClickListener {
-                navigateToFragment(StickyHeaderFragment(), StickyHeaderFragment.TAG)
             }
         }
     }
