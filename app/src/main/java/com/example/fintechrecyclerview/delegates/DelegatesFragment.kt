@@ -12,6 +12,7 @@ import com.example.fintechrecyclerview.delegates.expense.ExpenseDelegate
 import com.example.fintechrecyclerview.delegates.expense.ExpenseModel
 import com.example.fintechrecyclerview.delegates.utils.MainAdapter
 import com.example.fintechrecyclerview.delegates.utils.concatenateWithDate
+import com.example.fintechrecyclerview.itemdecorator.StickyHeaderItemDecoration
 
 /**
  * @author y.gladkikh
@@ -39,6 +40,7 @@ class DelegatesFragment : Fragment() {
             addDelegate(DateDelegate())
         }
         binding.recycler.adapter = adapter
+        binding.recycler.addItemDecoration(StickyHeaderItemDecoration())
         adapter.submitList(stubExpenseList.concatenateWithDate(stubDatesList))
     }
 
