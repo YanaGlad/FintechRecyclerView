@@ -1,4 +1,4 @@
-package com.example.fintechrecyclerview.itemtouchhelper
+package com.example.fintechrecyclerview.itemtouchhelper.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

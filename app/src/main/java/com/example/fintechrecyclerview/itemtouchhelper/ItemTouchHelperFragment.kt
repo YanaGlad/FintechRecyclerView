@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.fintechrecyclerview.databinding.FragmentItemTouchHelperBinding
-import com.example.fintechrecyclerview.stubExpenseList
+import com.example.fintechrecyclerview.itemtouchhelper.adapters.ExpensesTouchAdapter
+import com.example.fintechrecyclerview.itemtouchhelper.adapters.SimpleItemTouchHelperCallback
 
 /**
  * @author y.gladkikh
@@ -16,6 +18,8 @@ class ItemTouchHelperFragment : Fragment() {
 
     private var _binding: FragmentItemTouchHelperBinding? = null
     private val binding get() = _binding!!
+
+    private val touchHelperViewModel: TouchHelperViewModel by viewModels()
 
     private lateinit var expensesTouchAdapter: ExpensesTouchAdapter
 
@@ -34,7 +38,7 @@ class ItemTouchHelperFragment : Fragment() {
     }
 
     private fun initAdapter() {
-        expensesTouchAdapter = ExpensesTouchAdapter(stubExpenseList)
+        expensesTouchAdapter = ExpensesTouchAdapter(touchHelperViewModel.list)
 
         val callback: ItemTouchHelper.Callback = SimpleItemTouchHelperCallback(expensesTouchAdapter)
         val touchHelper = ItemTouchHelper(callback)

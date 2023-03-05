@@ -13,9 +13,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.nav_host_fragment, MainFragment(), "Main")
-            .addToBackStack(null)
-            .commit()
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.nav_host_fragment, MainFragment(), MainFragment.TAG)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 }
