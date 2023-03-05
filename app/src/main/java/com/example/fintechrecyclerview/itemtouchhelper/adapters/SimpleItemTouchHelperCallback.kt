@@ -1,4 +1,4 @@
-package com.example.fintechrecyclerview.itemtouchhelper
+package com.example.fintechrecyclerview.itemtouchhelper.adapters
 
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView

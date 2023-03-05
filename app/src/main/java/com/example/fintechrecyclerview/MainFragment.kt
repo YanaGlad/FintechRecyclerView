@@ -53,4 +53,8 @@ class MainFragment : Fragment() {
             .addToBackStack(null)
             .commit()
     }
+
+    companion object {
+        const val TAG = "MainFragment"
+    }
 }

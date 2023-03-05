@@ -1,4 +1,4 @@
-package com.example.fintechrecyclerview.itemtouchhelper
+package com.example.fintechrecyclerview.itemtouchhelper.adapters
 
 /**
  * @author y.gladkikh

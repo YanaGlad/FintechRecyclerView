@@ -11,8 +11,9 @@ import com.example.fintechrecyclerview.model.ExpenseModel
 /**
  * @author y.gladkikh
  */
-class ExpensesNotifyAdapter(private val expenses: MutableList<ExpenseModel>) :
-    RecyclerView.Adapter<ExpensesNotifyAdapter.ViewHolder>() {
+class ExpensesNotifyAdapter(
+    private val expenses: MutableList<ExpenseModel>,
+) : RecyclerView.Adapter<ExpensesNotifyAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(ExpenseItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
